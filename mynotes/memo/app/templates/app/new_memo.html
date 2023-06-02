@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% block content %}
+
+    <form action="{% url 'app:new_memo' %}" method="POST">{% csrf_token %}
+        <table>
+            <tr>
+                <th>タイトル</th>
+                <td>{{form.title}}</td>
+            </tr>
+            <tr>
+                <th>テキスト</th>
+                <td>{{form.text}}</td>
+            </tr>
+        </table>
+        <button type="submit" class="btn">保存</button>
+    </form>
+    <div>
+        <a href="{% url 'app:index' %}">ホームに戻る</a>
+    </div>
+{% endblock %}
